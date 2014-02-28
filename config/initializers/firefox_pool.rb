@@ -1,0 +1,1 @@
+ContentWatch::Application.config.selenium_firefox_pool = {size: 1}
