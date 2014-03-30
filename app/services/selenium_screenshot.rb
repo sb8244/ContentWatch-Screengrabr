@@ -22,7 +22,7 @@ class SeleniumScreenshot
       @location = el.location
       @size = el.size
     end
-    self
+    matches.size > 0
   end
 
   def save!(name)
