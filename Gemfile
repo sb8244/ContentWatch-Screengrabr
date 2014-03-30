@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.3'
+gem 'rails', '4.0.4'
 gem 'foreman'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
@@ -11,6 +11,8 @@ gem 'headless'
 gem 'selenium-webdriver'
 gem 'oily_png'
 gem 'resque'
+
+gem 'figaro'
 
 
 # API
@@ -30,4 +32,4 @@ end
 
 gem 'sqlite3'
 
-ruby "2.0.0"
+ruby "2.1.1"
