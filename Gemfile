@@ -25,6 +25,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'resque_spec'
 end
 
 group :production do

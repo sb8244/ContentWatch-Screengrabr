@@ -1,11 +1,9 @@
 class RequestsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
+  
   def create
-    url = params[:url]
-    selector = params[:selector]
-    web_callback = params[:callback]
-
-    if url.blank? || selector.blank?
+    params = requests_params
+    if params[:url].blank? || params[:selector].blank?
       render status: :bad_request, json: { message: "URL and Selector are required but not given" }
     else
       Resque.enqueue(ScreenshotWorker, params)
@@ -13,4 +11,8 @@ class RequestsController < ApplicationController
     end
   end
 
+  private
+    def requests_params
+      { url: params[:url], selector: params[:selector], callback: params[:callback] }
+    end
 end

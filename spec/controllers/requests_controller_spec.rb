@@ -6,10 +6,11 @@ describe RequestsController do
   describe "POST create" do
 
     context "with proper params" do
+      before { ResqueSpec.reset! }
+
       it "creates an async job" do
-        expect{
-          post :create, params
-        }.to change{ Resque.size(:screengrabs) }.by(1)
+        post :create, params
+        expect(ScreenshotWorker).to have_queued(params).in(:screengrabs)
       end
     end
 
