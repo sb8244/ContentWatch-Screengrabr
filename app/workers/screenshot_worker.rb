@@ -1,7 +1,7 @@
 class ScreenshotWorker
   @queue = :screengrabs
 
-  def self.perform(url, selector)
+  def self.perform(url: nil, selector: nil, callback: nil)
     ss = SeleniumScreenshot.new
     name = Digest::SHA1.hexdigest([Time.now, rand].join)
     name += Digest::SHA1.hexdigest([Time.now, rand].join)

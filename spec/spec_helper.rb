@@ -3,9 +3,11 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 
 require "action_controller/railtie"
+require "active_record/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 
+require 'rspec/rails'
 require 'rspec/autorun'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
