@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
     if params[:url].blank? || params[:selector].blank?
       render status: :bad_request, json: { message: "URL and Selector are required but not given" }
     else
-      Resque.enqueue(ScreenshotWorker, params)
+      Resque.enqueue(ScreenshotWorker, params[:url], params[:selector], params[:callback])
       render json: { status: "queued" }
     end
   end

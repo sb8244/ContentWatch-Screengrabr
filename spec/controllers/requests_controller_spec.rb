@@ -10,7 +10,7 @@ describe RequestsController do
 
       it "creates an async job" do
         post :create, params
-        expect(ScreenshotWorker).to have_queued(params).in(:screengrabs)
+        expect(ScreenshotWorker).to have_queued(params[:url], params[:selector], params[:callback]).in(:screengrabs)
       end
     end
 
